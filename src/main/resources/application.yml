@@ -15,4 +15,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/db_selling?useUnicode=yes&characterEncoding=UTF-8
     username: root
-    password: 123456789
+    password: root
+
+
+
