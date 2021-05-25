@@ -1,4 +1,4 @@
-package com.example.selling.data.services;
+package com.example.selling.data.service;
 
 import com.example.selling.data.dto.CustomerDTO;
 import com.example.selling.data.entity.Customer;
