@@ -1,14 +1,14 @@
 package com.example.selling.data.dto;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
-@Data
+
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderDTO {
 
     private int id;

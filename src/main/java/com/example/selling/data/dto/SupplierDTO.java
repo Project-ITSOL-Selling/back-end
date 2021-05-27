@@ -1,13 +1,12 @@
 package com.example.selling.data.dto;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
-@Data
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class SupplierDTO {
 
     private int id;

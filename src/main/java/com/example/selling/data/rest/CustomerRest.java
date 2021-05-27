@@ -18,6 +18,7 @@ public class CustomerRest {
 
     @GetMapping
     public ResponseEntity<List<CustomerDTO>> getAll(){
+
         return ResponseEntity.ok(service.getAll());
     }
     @GetMapping("/{id}")
