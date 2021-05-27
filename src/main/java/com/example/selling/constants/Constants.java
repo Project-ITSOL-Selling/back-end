@@ -35,6 +35,7 @@ public class Constants {
         public static final String DELETE_ERROR = "error.delete";
         public static final String Existed_Username = "Existed Username";
         public static final String Existed_Email = "Existed Email";
+        public static final String Incorrect = "Incorrect Username or Password";
     }
 
 }
