@@ -42,7 +42,7 @@ public class OrderDetailService {
             OrderDetail.setQuantity(c.getQuantity());
             OrderDetail.setTotalMoney(c.getTotalMoney());
 
-        return mapper.toDTO(OrderDetail);
+        return mapper.toDTO(repository.save(OrderDetail));
     }
     public void delete(int id){
         repository.deleteById(id);

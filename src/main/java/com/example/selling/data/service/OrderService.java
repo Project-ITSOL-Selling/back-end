@@ -43,7 +43,7 @@ public class OrderService {
             Order.setTotalMoney(c.getTotalMoney());
 
 
-        return mapper.toDTO(Order);
+        return mapper.toDTO(repository.save(Order));
     }
     public void delete(int id){
         repository.deleteById(id);

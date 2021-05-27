@@ -43,7 +43,7 @@ public class CommentService {
             Comment.setIdProduct(c.getIdProduct());
 
 
-        return mapper.toDTO(Comment);
+        return mapper.toDTO(repository.save(Comment));
     }
     public void delete(int id){
         repository.deleteById(id);

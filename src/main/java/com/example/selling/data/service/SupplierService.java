@@ -45,7 +45,7 @@ public class SupplierService {
         Supplier.setLogo(c.getLogo());
         Supplier.setName(c.getName());
 
-        return mapper.toDTO(Supplier);
+        return mapper.toDTO(repository.save(Supplier));
     }
 
     public void delete(int id) {

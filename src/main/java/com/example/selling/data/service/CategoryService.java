@@ -33,15 +33,15 @@ public class CategoryService {
     }
     public CategoryDTO update(CategoryDTO CategoryDTO,int id){
         Category c = mapper.toEntity(CategoryDTO);
-        Category Category = repository.findById(id)
+        Category category = repository.findById(id)
                 .orElseThrow(()->new ResourceNotFoundException("Category with id"+id+"not found!"));
+        Category category1 = new Category();
+            category1.setId(id);
+            category1.setDescription(c.getDescription());
+            category1.setImage(c.getImage());
+            category1.setName(c.getName());
 
-            Category.setId(id);
-            Category.setDescription(c.getDescription());
-            Category.setImage(c.getImage());
-            Category.setName(c.getName());
-
-        return mapper.toDTO(Category);
+        return mapper.toDTO(repository.save(category1));
     }
     public void delete(int id){
         repository.deleteById(id);

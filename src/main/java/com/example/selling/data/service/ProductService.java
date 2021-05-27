@@ -18,6 +18,7 @@ public class ProductService {
     public ProductMapper mapper;
 
     public List<ProductDTO> getAll() {
+
         List<Product> all = repository.findAll();
         return mapper.toDTO(all);
     }

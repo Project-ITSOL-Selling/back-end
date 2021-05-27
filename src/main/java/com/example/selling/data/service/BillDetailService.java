@@ -42,7 +42,7 @@ public class BillDetailService {
             BillDetail.setIdProduct(c.getIdProduct());
             BillDetail.setTotalMoney(c.getTotalMoney());
 
-        return mapper.toDTO(BillDetail);
+        return mapper.toDTO(repository.save(BillDetail));
     }
     public void delete(int id){
         repository.deleteById(id);

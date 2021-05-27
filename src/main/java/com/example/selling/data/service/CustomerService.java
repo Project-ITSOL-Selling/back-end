@@ -44,7 +44,7 @@ public class CustomerService {
             customer.setName(c.getName());
             customer.setPhoneNumber(c.getPhoneNumber());
 
-        return mapper.toDTO(customer);
+        return mapper.toDTO(repository.save(customer));
     }
     public void delete(int id){
         repository.deleteById(id);

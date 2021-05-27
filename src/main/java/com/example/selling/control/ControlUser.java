@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class ControlUser {
     @Autowired
     private UserService userService;
@@ -19,14 +20,17 @@ public class ControlUser {
     public @ResponseBody
     Response register(@RequestBody FormUser formUser) {
         String result = String.valueOf(userService.registerUser(formUser));
-        if(result.equalsIgnoreCase(StatusRegisterUserEnum.Existed_Username.toString())){
-            return Response.warning(Constants.RESPONSE_CODE.Existed_Username);
+        if (result.equalsIgnoreCase(StatusRegisterUserEnum.Existed_Username.toString())) {
+            return Response.warning(Constants.RESPONSE_CODE.WARNING, Constants.RESPONSE_CODE.Existed_Username);
         }
-        if (result.equalsIgnoreCase(StatusRegisterUserEnum.Existed_Email.toString())){
+        if (result.equalsIgnoreCase(StatusRegisterUserEnum.Existed_Email.toString())) {
             return Response.warning(Constants.RESPONSE_CODE.Existed_Email);
         }
-        return Response.success();
+        return Response.success(Constants.RESPONSE_CODE.SUCCESS);
     }
 
-//    @GetMapping("demo")
+    @GetMapping("/demo")
+    public String demo() {
+        return "Demo";
+    }
 }

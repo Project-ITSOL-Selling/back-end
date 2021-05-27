@@ -42,7 +42,7 @@ public class BillOrderService {
             BillOrder.setPrice(c.getPrice());
             BillOrder.setQuantity(c.getQuantity());
 
-        return mapper.toDTO(BillOrder);
+        return mapper.toDTO(repository.save(BillOrder));
     }
     public void delete(int id){
         repository.deleteById(id);
