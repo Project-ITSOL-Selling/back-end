@@ -40,7 +40,7 @@ public class ControlProduct {
             p = new Product();
         }
         p.setId(formProduct.getId());
-//        p.setIdCategory(formProduct.getIdCategory());
+        p.setIdCategory(formProduct.getIdCategory());
         p.setIdSupplier(formProduct.getIdSupplier());
         p.setImage(formProduct.getImage());
         p.setName(formProduct.getName());
