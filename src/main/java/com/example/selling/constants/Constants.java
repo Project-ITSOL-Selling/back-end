@@ -1,5 +1,7 @@
 package com.example.selling.constants;
 
+import com.example.selling.common.CommonUtil;
+
 public class Constants {
     public static class RESPONSE_TYPE {
         public static final String SUCCESS = "SUCCESS";
@@ -13,6 +15,15 @@ public class Constants {
         public static final String NOK = "NOK";
         public static final String EXIST = "EXIST";
 
+    }
+
+    public interface COMMON {
+        String FONT_FOLDER = CommonUtil.getConfig("fontFolder");
+        String MARKET_COMPANY_ID = "MARKET_COMPANY_ID";
+        String EXPORT_FOLDER = CommonUtil.getConfig("exportFolder");
+        //Thu muc chua file tam de import
+        String IMPORT_FOLDER = "/share/import/";
+        String DATE_TIME_FORMAT = "dd/MM/yyyy HH:mm:ss";
     }
 
     public static class RESPONSE_CODE {

@@ -1,5 +1,9 @@
 package com.example.selling.data.entity;
 
+import com.example.selling.data.convertDate.FlexDateDeserializer;
+import com.example.selling.data.convertDate.FlexDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +21,8 @@ public class Customer {
     @Column(name = "name")
     private String name;
     @Column(name = "date_of_birth")
+    @JsonDeserialize(using = FlexDateDeserializer.class)
+    @JsonSerialize(using = FlexDateSerializer.class)
     private Date dob;
     @Column(name = "gender")
     private String gender;

@@ -6,7 +6,6 @@ import com.example.selling.constants.Constants;
 import com.example.selling.constants.StatusRegisterUserEnum;
 import com.example.selling.data.service.UserService;
 import com.example.selling.ultis.form.FormUser;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
