@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/customer")
+@RequestMapping("/customer")
 public class CustomerRest {
     @Autowired
     public CustomerService service;
@@ -27,7 +27,6 @@ public class CustomerRest {
     }
     @PostMapping
     public ResponseEntity<CustomerDTO> save(@RequestBody CustomerDTO c){
-
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(c));
     }
     @PutMapping("/{id}")
