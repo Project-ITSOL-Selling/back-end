@@ -32,7 +32,7 @@ public class ControlBillDetail {
     public @ResponseBody
     Response saveOrUpdate(@RequestBody BillDetailDTO billDetailDTO) {
         BillDetail entity;
-        if ((billDetailDTO.getId() <= 0)) {
+        if ((billDetailDTO.getId() > 0)) {
             entity = billDetailRepository.findById(billDetailDTO.getId()).orElse(null);
         } else {
             entity = new BillDetail();

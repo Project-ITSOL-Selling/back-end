@@ -19,7 +19,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/billOrder")
-@CrossOrigin("'http://localhost:4200")
+@CrossOrigin("*")
 public class ControlBillOrder {
     @Autowired
     private BillOrderService billOrderService;
@@ -37,17 +37,19 @@ public class ControlBillOrder {
     public @ResponseBody
     Response saveOrUpdate(@RequestBody BillOrderDTO billOrderDTO) {
         BillOrder entity;
-        if ((billOrderDTO.getId() <= 0)) {
+        if ((billOrderDTO.getId() > 0)) {
             entity = billOrderRepository.findById(billOrderDTO.getId()).orElse(null);
         } else {
             entity = new BillOrder();
         }
         entity.setId(billOrderDTO.getId());
+        entity.setCodeBill(billOrderDTO.getCodeBill());
         entity.setPrice(billOrderDTO.getPrice());
         entity.setDescription(billOrderDTO.getDescription());
         entity.setQuantity(billOrderDTO.getQuantity());
         entity.setCreatedDate(new Date());
         billOrderRepository.save(entity);
+
         return Response.success(Constants.RESPONSE_CODE.SUCCESS);
     }
 

@@ -89,7 +89,7 @@ public class JwtUlti implements Serializable {
     private String createToken(Map<String, Object> claims, String subject) {
 
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * JWT_TOKEN_VALIDITY))
+                .setExpiration(new Date(System.currentTimeMillis() + 10000 * JWT_TOKEN_VALIDITY))
                 .setIssuer("ITSOL")
                 .setHeaderParam("tokenType", "Bearer ")
                 .setAudience("You")

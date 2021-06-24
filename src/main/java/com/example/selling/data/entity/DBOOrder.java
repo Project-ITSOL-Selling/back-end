@@ -9,7 +9,7 @@ import java.util.Date;
 @Entity(name = "dbo_order")
 @Setter
 @Getter
-public class Order {
+public class DBOOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -22,5 +22,4 @@ public class Order {
     private Long totalMoney;
     @Column(name = "description")
     private String description;
-
 }

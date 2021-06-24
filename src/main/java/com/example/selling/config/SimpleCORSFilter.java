@@ -2,9 +2,12 @@ package com.example.selling.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -35,4 +38,14 @@ public class SimpleCORSFilter implements Filter {
             chain.doFilter(req, res);
         }
     }
+//    @Bean
+//    public WebMvcConfigurer corsConfigurer() {
+//        return new WebMvcConfigurerAdapter() {
+//            @Override
+//            public void addCorsMappings(CorsRegistry registry) {
+//                registry.addMapping("/**")
+//                        .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH");
+//            }
+//        };
+//    }
 }

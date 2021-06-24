@@ -32,7 +32,7 @@ public class ControlOrderDetail {
     public @ResponseBody
     Response saveOrUpdate(@RequestBody OrderDetailDTO orderDetailDTO) {
         OrderDetail entity;
-        if ((orderDetailDTO.getId() <= 0)) {
+        if ((orderDetailDTO.getId() > 0)) {
             entity = orderDetailRepository.findById(orderDetailDTO.getId()).orElse(null);
         } else {
             entity = new OrderDetail();

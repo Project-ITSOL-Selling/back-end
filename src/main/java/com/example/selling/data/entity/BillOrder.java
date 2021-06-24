@@ -18,6 +18,8 @@ public class BillOrder {
     private double price;
     @Column(name = "description")
     private String description;
+    @Column(name = "code_bill")
+    private String codeBill;
     @Column(name = "quantity")
     private int quantity;
     @Column(name = "created_date")

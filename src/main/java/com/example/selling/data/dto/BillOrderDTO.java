@@ -15,6 +15,8 @@ public class BillOrderDTO {
 
     private String description;
 
+    private String codeBill;
+
     private int quantity;
 
     private Date createdDate;

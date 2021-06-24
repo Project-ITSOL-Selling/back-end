@@ -19,18 +19,18 @@ public interface BillOrderRepository extends JpaRepository<BillOrder, Integer> {
     public default DataTableResults<BillOrderBean> getDatatable(VfData vfData, BillOrderDTO form) {
         List<Object> paramList = new ArrayList<>();
         String sql = "SELECT ";
-        sql += "    c.id as id, ";
-        sql += "    c.price as price, ";
-        sql += "    c.created_date as createdDate, ";
-        sql += "    c.quantity as quantity, ";
-        sql += "    c.description as description ";
-        sql += "    FROM bill_order c ";
+        sql += "    b.id as id, ";
+        sql += "    b.price as price, ";
+        sql += "    b.created_date as createdDate, ";
+        sql += "    b.quantity as quantity, ";
+        sql += "    b.description as description ";
+        sql += "    FROM bill_order b ";
 
         StringBuilder strCondition = new StringBuilder(" WHERE 1 = 1 ");
         if (!CommonUtil.isEmpty(form.getPrice())) {
-            CommonUtil.filter(form.getPrice(), strCondition, paramList, "c.price");
+            CommonUtil.filter(form.getPrice(), strCondition, paramList, "b.price");
         }
-        String orderBy = " ORDER BY c.price DESC ";
+        String orderBy = " ORDER BY b.price DESC ";
         return vfData.findPaginationQuery(sql + strCondition.toString(), orderBy, paramList, BillOrderBean.class);
     }
 }

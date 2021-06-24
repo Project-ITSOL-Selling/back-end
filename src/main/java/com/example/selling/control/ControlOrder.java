@@ -3,7 +3,7 @@ package com.example.selling.control;
 import com.example.selling.common.Response;
 import com.example.selling.constants.Constants;
 import com.example.selling.data.dto.OrderDTO;
-import com.example.selling.data.entity.Order;
+import com.example.selling.data.entity.DBOOrder;
 import com.example.selling.data.repository.OrderRepository;
 import com.example.selling.data.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,18 +24,18 @@ public class ControlOrder {
     @GetMapping("/getListOrder")
     public @ResponseBody
     Response getList() {
-        List<Order> lst = orderRepository.findAll();
+        List<DBOOrder> lst = orderRepository.findAll();
         return Response.success(Constants.RESPONSE_CODE.SUCCESS).withData(lst);
     }
 
     @PostMapping("/createOrder")
     public @ResponseBody
     Response saveOrUpdate(@RequestBody OrderDTO orderDTO) {
-        Order entity;
-        if ((orderDTO.getId() <= 0)) {
+        DBOOrder entity;
+        if ((orderDTO.getId() > 0)) {
             entity = orderRepository.findById(orderDTO.getId()).orElse(null);
         } else {
-            entity = new Order();
+            entity = new DBOOrder();
         }
         entity.setId(orderDTO.getId());
         entity.setTotalMoney(orderDTO.getTotalMoney());
@@ -49,8 +49,8 @@ public class ControlOrder {
     @DeleteMapping("deleteOrder/{id}")
     public @ResponseBody
     Response deleteCategory(@PathVariable int id) {
-        Order order = orderRepository.findById(id).orElse(null);
-        if (Objects.isNull(order)) {
+        DBOOrder DBOOrder = orderRepository.findById(id).orElse(null);
+        if (Objects.isNull(DBOOrder)) {
             return new Response("Ban ghi da bi xoa");
         }
         orderRepository.deleteById(id);

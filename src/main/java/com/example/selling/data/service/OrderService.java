@@ -1,7 +1,7 @@
 package com.example.selling.data.service;
 
 import com.example.selling.data.dto.OrderDTO;
-import com.example.selling.data.entity.Order;
+import com.example.selling.data.entity.DBOOrder;
 import com.example.selling.data.exception.ResourceNotFoundException;
 import com.example.selling.data.mapper.OrderMapper;
 import com.example.selling.data.repository.OrderRepository;
@@ -18,32 +18,32 @@ public class OrderService {
     public OrderMapper mapper;
 
     public List<OrderDTO> getAll(){
-        List<Order> all = repository.findAll();
+        List<DBOOrder> all = repository.findAll();
         return mapper.toDTO(all);
     }
     public OrderDTO getCusById(int id){
-        Order Order = repository.findById(id)
+        DBOOrder DBOOrder = repository.findById(id)
                 .orElseThrow(()->new ResourceNotFoundException("Order with id"+id+"not found!"));
-        return mapper.toDTO(Order);
+        return mapper.toDTO(DBOOrder);
     }
     public OrderDTO save(OrderDTO OrderDTO){
-        Order Order = mapper.toEntity(OrderDTO);
-        Order save = repository.save(Order);
+        DBOOrder DBOOrder = mapper.toEntity(OrderDTO);
+        DBOOrder save = repository.save(DBOOrder);
         return mapper.toDTO(save);
     }
     public OrderDTO update(OrderDTO OrderDTO,int id){
-        Order c = mapper.toEntity(OrderDTO);
-        Order Order = repository.findById(id)
+        DBOOrder c = mapper.toEntity(OrderDTO);
+        DBOOrder DBOOrder = repository.findById(id)
                 .orElseThrow(()->new ResourceNotFoundException("Order with id"+id+"not found!"));
 
-            Order.setId(id);
-            Order.setCreatedDate(c.getCreatedDate());
-            Order.setDescription(c.getDescription());
-            Order.setIdCustomer(c.getIdCustomer());
-            Order.setTotalMoney(c.getTotalMoney());
+            DBOOrder.setId(id);
+            DBOOrder.setCreatedDate(c.getCreatedDate());
+            DBOOrder.setDescription(c.getDescription());
+            DBOOrder.setIdCustomer(c.getIdCustomer());
+            DBOOrder.setTotalMoney(c.getTotalMoney());
 
 
-        return mapper.toDTO(Order);
+        return mapper.toDTO(DBOOrder);
     }
     public void delete(int id){
         repository.deleteById(id);
