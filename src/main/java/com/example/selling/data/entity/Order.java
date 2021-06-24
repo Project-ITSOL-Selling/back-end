@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "`order`")
+@Entity(name = "dbo_order")
 @Setter
 @Getter
 public class Order {

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin("*")
+@RequestMapping("/oauth")
 public class AuthenticateController {
     @Autowired
     private AuthenticationManager authenticationManager;

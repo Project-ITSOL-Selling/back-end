@@ -1,10 +1,15 @@
 package com.example.selling.data.service;
 
+import com.example.selling.common.VfData;
 import com.example.selling.data.dto.ProductDTO;
 import com.example.selling.data.entity.Product;
 import com.example.selling.data.exception.ResourceNotFoundException;
 import com.example.selling.data.mapper.ProductMapper;
 import com.example.selling.data.repository.ProductRepository;
+import com.example.selling.domain.DataTableResults;
+import com.example.selling.ultis.bean.CategoryBean;
+import com.example.selling.ultis.bean.ProductBean;
+import com.example.selling.ultis.form.FormCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +21,7 @@ public class ProductService {
     public ProductRepository repository;
     @Autowired
     public ProductMapper mapper;
+
     public List<ProductDTO> getAll() {
         List<Product> all = repository.findAll();
         return mapper.toDTO(all);
@@ -53,4 +59,12 @@ public class ProductService {
         repository.deleteById(id);
     }
 
+    @Autowired
+    private VfData vfData;
+
+    public DataTableResults<ProductBean> getDataTables(FormCategory form) {
+        DataTableResults<ProductBean> dtTable = repository.getDatatable(vfData, form);
+//        List<CategoryBean> lst = dtTable.getData();
+        return dtTable;
+    }
 }

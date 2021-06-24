@@ -6,11 +6,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ProductBean {
-    private int id;
-    private int idCategory;
-    private int idSupplier;
+    private Integer id;
+    private String nameCategory;
+    private Integer idSupplier;
     private String name;
-    private double price;
+    private Double price;
     private String image;
-    private int quantity;
+    private Integer quantity;
 }

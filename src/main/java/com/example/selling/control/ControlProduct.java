@@ -5,7 +5,10 @@ import com.example.selling.constants.Constants;
 import com.example.selling.data.entity.Product;
 import com.example.selling.data.repository.ProductRepository;
 import com.example.selling.data.service.ProductService;
+import com.example.selling.domain.DataTableResults;
+import com.example.selling.ultis.bean.CategoryBean;
 import com.example.selling.ultis.bean.ProductBean;
+import com.example.selling.ultis.form.FormCategory;
 import com.example.selling.ultis.form.FormProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -59,6 +62,12 @@ public class ControlProduct {
         }
         productRepository.deleteById(id);
         return Response.success(Constants.RESPONSE_CODE.SUCCESS);
+    }
+
+    @GetMapping("/search")
+    public @ResponseBody
+    DataTableResults<ProductBean> processSearch(FormCategory form) {
+        return productService.getDataTables(form);
     }
 }
 
